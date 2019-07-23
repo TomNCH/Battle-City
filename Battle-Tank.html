@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+
+    </head>
+    <body style="background-color: black" onload="doReady()">
+        <canvas id="myCanvas" width="1340px" height="640px" style="border: 3px solid #d3d3d3; margin: auto; position: absolute"></canvas>
+        <img id="image" src="image.gif" height="253" width="480" style="display: none"/>
+        <div id="prompt" style="color: #ffffff;text-align: center; ">
+            <h2>Press Enter To Play ...</h2>
+        </div>
+        <div style="display: none">
+            <audio id="shoot" src="./sound/shoot.mp3"></audio>
+            <audio id="explosion" src="./sound/explosion.mp3"></audio>
+            <audio id="start" src="./sound/start.mp3" preload="auto"></audio>
+        </div>
+
+        <script src="constant.js"></script>
+        <script src="Bullet_Model.js"></script>
+        <script src="Tank-Model.js"></script>
+        <script src="GameBoard.js"></script>
+        <script src="function-doReady.js"></script>
+        <script src="function-MoveSelection.js"></script>
+        <script src="main.js"></script>
+
+        <script>
+            let gameStarted = false;
+            onkeypress = function () {
+                if (!gameStarted) {
+                    document.getElementById("prompt").style.display = "none";
+                    gameStarted = true;
+                    main();
+                }
+            }
+        </script>
+    </body>
+</html>
